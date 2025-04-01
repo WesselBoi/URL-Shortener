@@ -1,4 +1,4 @@
-URL Shortener 🔗✨
+# URL Shortener 🔗✨
 A simple Node.js and Express-based URL shortener with MongoDB for storing links and EJS for server-side rendering.
 
 Features 🚀
@@ -15,10 +15,11 @@ Features 🚀
 
 
 Tech Stack 🛠
-Node.js & Express – Backend framework
 
-MongoDB – Database for storing URLs
++ Node.js & Express – Backend framework
 
-EJS – Server-side templating engine
++ MongoDB – Database for storing URLs
 
-Mongoose – ODM for MongoDB
++ EJS – Server-side templating engine
+
++ Mongoose – ODM for MongoDB
