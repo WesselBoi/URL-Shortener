@@ -341,7 +341,7 @@
         <div class="result-card">
           <div>
             <p>Your shortened URL is ready:</p>
-            <div class="short-url">http://localhost:8001/url/<%= locals.id %></div>
+            <div class="short-url"><%= process.env.BACKEND_URL %>/url/<%= locals.id %></div>
           </div>
           <div class="copy-tooltip">
             <button class="copy-btn" onclick="copyToClipboard('http://localhost:8001/url/<%= locals.id %>')">
@@ -428,9 +428,9 @@
                   </td>
                   <td>
                     <div style="display: flex; gap: 5px;">
-                      <button class="action-btn copy-btn" onclick="copyToClipboard('http://localhost:8001/url/<%= url.shortId %>')">
+                        <button class="action-btn copy-btn" onclick="copyToClipboard('<%= process.env.BACKEND_URL %>/url/<%= url.shortId %>')">
                         <i class="fas fa-copy"></i>
-                      </button>
+                        </button>
                     </div>
                   </td>
                 </tr>
