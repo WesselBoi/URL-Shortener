@@ -13,7 +13,7 @@ const PORT = process.env.PORT || 8001;
 
 
 
-connectToMongoDB(process.env.MONGODB_URI)
+connectToMongoDB("mongodb+srv://WesselBoi:lhmVZhGjcmoDZe5q@cluster0.lptbzmk.mongodb.net/")
   .then(() => console.log("Connected to MongoDB"))
   .catch((err) => console.log("Error connecting to MongoDB", err));
 
