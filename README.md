@@ -14,7 +14,7 @@ Features 🚀
 ✅ MongoDB for efficient link storage
 
 
-Tech Stack 🛠
+Tech Stack used in this project🛠
 
 + Node.js & Express – Backend framework
 
