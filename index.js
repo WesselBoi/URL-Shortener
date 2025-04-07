@@ -4,16 +4,20 @@ const express = require("express");
 const mongoose = require("mongoose");
 const urlRoute = require("./routes/url");
 const connectToMongoDB = require("./connection");
-const URL = require("./models/url");
-const staticRoute = require("./routes/staticRouter");
 const path = require("path");
 
+
+const URL = require("./models/url");
+const staticRoute = require("./routes/staticRouter");
+const userRoute = require("./routes/user");
+
 const app = express();
-const PORT = process.env.PORT || 8001; 
+const PORT = 8001; 
+const mongoUrl="mongodb://127.0.0.1:27017/short-url"
 
 
 
-connectToMongoDB("mongodb+srv://WesselBoi:lhmVZhGjcmoDZe5q@cluster0.lptbzmk.mongodb.net/")
+connectToMongoDB(mongoUrl)
   .then(() => console.log("Connected to MongoDB"))
   .catch((err) => console.log("Error connecting to MongoDB", err));
 
@@ -45,6 +49,9 @@ app.get("/url/:shortId", async (req, res) => {
   );
   res.redirect(entry.redirectUrl);
 });
+
+
+app.use("/user", userRoute);
 
 
 app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
