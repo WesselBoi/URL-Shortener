@@ -5,11 +5,13 @@ const mongoose = require("mongoose");
 const urlRoute = require("./routes/url");
 const connectToMongoDB = require("./connection");
 const path = require("path");
+const {restrictToLoggedinUserOnly  } = require("./middlewares/auth");
 
 
 const URL = require("./models/url");
 const staticRoute = require("./routes/staticRouter");
 const userRoute = require("./routes/user");
+const cookieParser = require("cookie-parser");
 
 const app = express();
 const PORT = 8001; 
@@ -28,8 +30,9 @@ app.set("views", path.resolve("./views"));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false  }));
+app.use(cookieParser());
 
-app.use("/url", urlRoute);
+app.use("/url", restrictToLoggedinUserOnly , urlRoute);       // Restrict access to logged-in users only by using inline middleware
 
 app.use("/", staticRoute)
 
