@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 const urlRoute = require("./routes/url");
 const connectToMongoDB = require("./connection");
 const path = require("path");
-const {restrictToLoggedinUserOnly  } = require("./middlewares/auth");
+const {restrictToLoggedinUserOnly , checkAuth} = require("./middlewares/auth");
 
 
 const URL = require("./models/url");
@@ -34,7 +34,7 @@ app.use(cookieParser());
 
 app.use("/url", restrictToLoggedinUserOnly , urlRoute);       // Restrict access to logged-in users only by using inline middleware
 
-app.use("/", staticRoute)
+app.use("/", checkAuth , staticRoute)
 
 
 app.get("/url/:shortId", async (req, res) => {
