@@ -15,7 +15,7 @@ const cookieParser = require("cookie-parser");
 
 const app = express();
 const PORT = 8001; 
-const mongoUrl="mongodb://127.0.0.1:27017/short-url"
+const mongoUrl=process.env.MONGODB_URI
 
 
 
